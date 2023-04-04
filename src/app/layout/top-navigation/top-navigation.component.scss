@@ -1,0 +1,39 @@
+.topNav {
+    background-color: rgb(5, 20, 53);
+    color: white;
+}
+
+.topNav a {
+    color: white;
+    text-decoration: none;
+    padding: 20px 20px;
+}
+
+.topNav a:hover {
+    background-color: white;
+    color: black;
+}
+
+.flexExpand {
+    flex: 1 1 auto;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .web-section {
+        display: none;
+    }
+    .mobile-section {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .mobile-section {
+        display: none;
+    }
+
+    .web-section {
+        display: block;
+    }
+}

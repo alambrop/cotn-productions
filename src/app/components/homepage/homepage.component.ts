@@ -1,0 +1,86 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-homepage',
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.scss']
+})
+export class HomepageComponent {
+
+
+
+  constructor() {}
+
+  public currentImage = 0;
+  public slideInterval = 10000;
+
+  images = [
+    {
+      imageSrc: 'assets/cotnhome.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/hogwarts.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/cars.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/cybercity.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/godwoken.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/keegan.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/me2ending.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/normandy.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/saturn.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/sea.png',
+      imageAlt: ''
+    },
+    {
+      imageSrc: 'assets/torrent.png',
+      imageAlt: ''
+    },
+
+  ]
+
+  ngOnInit(): void {
+    this.autoSlideImages()
+  }
+
+  autoSlideImages(): void  {
+    setInterval(()=> {
+      this.nextImage();
+    }, this.slideInterval )
+  }
+
+  selectImage(i: number) {
+    this.currentImage = i;
+  }
+
+  nextImage() {
+    this.currentImage += 1;
+
+    if (this.currentImage >= this.images.length - 1) {
+      this.currentImage = 0;
+    }
+  }
+}
