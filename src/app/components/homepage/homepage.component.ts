@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HomepageComponent {
 
-
-
   constructor() {}
 
   public currentImage = 0;

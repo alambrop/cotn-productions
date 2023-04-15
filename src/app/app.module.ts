@@ -12,16 +12,15 @@ import { environment } from 'src/environments/environment';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
-
-
-
+import { ParticleGeneratorComponent } from './components/particle-generator/particle-generator.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavigationComponent,
-    HomepageComponent
+    HomepageComponent,
+    ParticleGeneratorComponent
 
   ],
   imports: [
