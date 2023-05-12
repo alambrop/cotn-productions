@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { DOCUMENT } from '@angular/common';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
@@ -10,8 +10,8 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class TopNavigationComponent implements OnInit{
 
- 
-  constructor(private router: Router, public auth: AuthService) {
+  isAuthenticated$ = this.auth.isAuthenticated$
+  constructor(private router: Router, private auth: AuthService, @Inject(DOCUMENT) private doc: Document) {
     
   }
 
@@ -34,7 +34,11 @@ export class TopNavigationComponent implements OnInit{
   }
 
   logout(): void {
-    this.auth.logout();
+    this.auth.logout({
+      logoutParams: {
+        returnTo: this.doc.location.origin,
+      },
+    });
    
   }
 

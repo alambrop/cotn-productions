@@ -15,6 +15,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { ParticleGeneratorComponent } from './components/particle-generator/particle-generator.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { GamesComponent } from './components/games/games.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
@@ -23,8 +25,9 @@ import { FooterComponent } from './layout/footer/footer.component';
     TopNavigationComponent,
     HomepageComponent,
     ParticleGeneratorComponent,
-    FooterComponent
-
+    FooterComponent,
+    GamesComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
