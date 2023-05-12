@@ -1,4 +1,5 @@
 import { Component , ViewChild, ElementRef} from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-homepage',
@@ -9,7 +10,7 @@ export class HomepageComponent {
 
   @ViewChild('nextElement', { static: true }) nextElementRef: ElementRef<HTMLElement>;
 
-  constructor() {}
+  constructor(private auth: AuthService) {}
 
   public currentImage = 0;
   public slideInterval = 10000;
@@ -86,5 +87,31 @@ export class HomepageComponent {
     if (this.currentImage >= this.images.length - 1) {
       this.currentImage = 0;
     }
+  }
+
+  loginWithRedirect(): void {
+    this.auth.loginWithRedirect({
+      appState: {
+        target: '/games',
+      },
+    });
+   
+  }
+
+  signup(): void {
+    this.auth.loginWithRedirect({ 
+      appState: {
+        target: '/games',
+      },
+      authorizationParams: {
+        screen_hint: 'signup',
+      }}
+    );
+    
+  }
+
+  logout(): void {
+    this.auth.logout();
+   
   }
 }

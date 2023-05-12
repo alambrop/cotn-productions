@@ -1,26 +1,10 @@
-<!-- <div class="web-section">
-    <mat-toolbar class="topNav">
-        <span>Cotn Productions</span>
-        
-        <span class="flexExpand"></span>
-        <a routerLink="/login" *ngIf="!isAuthenticated">Login</a>
-        <a routerLink="/signup" *ngIf="!isAuthenticated">Sign Up</a>
-        <a class="nav-link" routerLink="" (click)="signOut()" *ngIf="isAuthenticated">Sign out</a>
-    </mat-toolbar>
-</div> -->
-
 <div class="web-section">
     <mat-toolbar class="topNav">
         <span>Cotn Productions</span>
         <span class="flexExpand"></span>
 
-        <div *ngIf="(auth.isAuthenticated$ | async) === true">
+        <div *ngIf="(isAuthenticated$| async) === true">
             <a class="nav-link" routerLink="" (click)="logout()"> Log out</a>
         </div>
-        <div *ngIf="(auth.isAuthenticated$ | async) === false">
-            <a class="nav-link" routerLink="" (click)="loginWithRedirect()">Login</a> 
-            <a class="nav-link" routerLink="" (click)="signup()">Sign up</a> 
-        </div>
-       
     </mat-toolbar>
 </div>
