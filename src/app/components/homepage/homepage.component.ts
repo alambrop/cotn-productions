@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent {
+
+  @ViewChild('nextElement', { static: true }) nextElementRef: ElementRef<HTMLElement>;
 
   constructor() {}
 
@@ -64,6 +66,10 @@ export class HomepageComponent {
     this.autoSlideImages()
   }
 
+  scrollToNextElement() {
+    this.nextElementRef.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+  
   autoSlideImages(): void  {
     setInterval(()=> {
       this.nextImage();

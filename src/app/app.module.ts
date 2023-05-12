@@ -12,7 +12,9 @@ import { environment } from 'src/environments/environment';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 import { ParticleGeneratorComponent } from './components/particle-generator/particle-generator.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { ParticleGeneratorComponent } from './components/particle-generator/part
     AppComponent,
     TopNavigationComponent,
     HomepageComponent,
-    ParticleGeneratorComponent
+    ParticleGeneratorComponent,
+    FooterComponent
 
   ],
   imports: [
@@ -30,6 +33,7 @@ import { ParticleGeneratorComponent } from './components/particle-generator/part
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
+    MatButtonModule,
     AuthModule.forRoot(environment.auth)
   ],
   providers: [],
