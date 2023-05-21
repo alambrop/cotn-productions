@@ -12,20 +12,21 @@ export class GamesComponent {
   user$ = this.authService.user$;
   code$ = this.user$.pipe(map((user: any) => JSON.stringify(user, null, 2)));
 
-  constructor(private authService: AuthService) {}
+  gamesList = [];
 
-  // ngOnInit() {
-  //   let user
-  //   this.user$.subscribe((data) => {
-  //     user = data;
-  //     console.log("this.user: ", user);
-  //   })
+  constructor(private authService: AuthService) { }
 
-  //   let code;
-  //   this.code$.subscribe((data2) => {
-  //     code = data2;
-  //     console.log("this.code: ", code);
-  //   })
-  // }
+  ngOnInit() {
+
+    let user
+    this.user$.subscribe((data) => {
+      user = data;
+    })
+
+    let code;
+    this.code$.subscribe((data2) => {
+      code = data2;
+    })
+  }
 
 }
